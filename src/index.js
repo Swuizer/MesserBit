@@ -6,7 +6,7 @@ import "./index.css";
 import {Provider} from "react-redux";
 import { Toaster } from "react-hot-toast";
 import {configureStore} from "@reduxjs/toolkit";
-import { thunk } from 'redux-thunk';
+// import { thunk } from 'redux-thunk';
 import rootReducer from "./reducer";
 
 const store = configureStore({

@@ -278,7 +278,7 @@ exports.getEnrolledRooms = async (req, res) => {
         // Return the enrolled rooms
         return res.status(200).json({
             success: true,
-            data: userDetails.rooms, // Return rooms instead of courses
+            data: userDetails.rooms, // Return rooms instead of UserDetails
         });
     } catch (error) {
         return res.status(500).json({

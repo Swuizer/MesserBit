@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from '../../assets/Logo/Vista Logos (1)/logo-transparent-png.png'
-// import logo from '../../assets/Logo/logo_transparent.png'
 import { Link, matchPath } from 'react-router-dom'
 import {NavbarLinks} from '../../data/navbar-links'
 import { useLocation } from 'react-router-dom'
@@ -20,15 +19,22 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex h-16 items-center justify-center bg-gradient-to-b from-white to-transparent opacity-90 fixed w-full top-0 left-0 shadow-md z-50 mb-10'>
+    <div className='flex h-12 md:h-16 items-center justify-center bg-gradient-to-b from-white to-transparent opacity-90 fixed w-full top-0 left-0 shadow-md z-50 mb-10'>
         <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
             {/* Image */}
-            <Link to="/">
-                <img src={logo} width={250} height={100} loading='lazy'alt='MesserBit Logo'/>
+            <Link to="/" className='flex-shrink-0'>
+                <img 
+                  src={logo} 
+                  width={150} 
+                  height={100} 
+                  loading='lazy'
+                  alt='MesserBit Logo'
+                  className='w-[150px] sm:w-[200px] md:w-[220px] lg:w-[250px]'
+                />
             </Link>
 
             {/* Nav Links */}
-            <nav>
+            <nav className="hidden md:flex gap-x-6 text-richblack-25">
               <ul className='flex gap-x-6 text-richblack-25'>
                 {
                   NavbarLinks.map((link, index) => (
@@ -47,14 +53,14 @@ const Navbar = () => {
             </nav>
 
             {/* Login/ Signup/Dashboard */}
-            <div className='flex gap-x-4 items-center'>
+            <div className='flex items-center gap-x-4'>
                 {
                   user && user?.accountType !== "Admin" && (
                     <Link to="/dashboard/cart" className='relative'>
-                      <AiOutlineShoppingCart/>
+                      <AiOutlineShoppingCart className="text-brown-600" size={24}/>
                       {
                         totalItems > 0 && (
-                          <span>
+                          <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
                             {totalItems}
                           </span>
                         )
@@ -65,7 +71,7 @@ const Navbar = () => {
                 {
                   token === null && (
                     <Link to="/login">
-                      <button className='border border-richblue-700 bg-richblack-800 px-3 py-2 text-richblack-100 rounded-md'>
+                      <button className='hidden sm:block bg-brown-600 px-3 py-2 text-white rounded-md hover:bg-brown-800 transition-all duration-300'>
                         Log in
                       </button>
                     </Link>
@@ -74,7 +80,7 @@ const Navbar = () => {
                 {
                   token === null && (
                     <Link to="/signup">
-                      <button className='border border-richblue-700 bg-richblack-800 px-3 py-2 text-richblack-100 rounded-md'>
+                      <button className='hidden sm:block bg-brown-600 px-3 py-2 text-white rounded-md hover:bg-brown-800 transition-all duration-300'>
                         Sign up
                       </button>
                     </Link>

@@ -225,8 +225,9 @@ const capitalizeWords = (str) => {
 exports.getAllRooms = async (req, res) => {
     try{
         // Fetch data
-        const {location, minPrice, maxPrice} = req.body;
-
+        const { minPrice, maxPrice} = req.body;
+        const location = req.body.formData;
+        
         // data validation
         if(!location){
             return res.status(400).json({
@@ -298,9 +299,6 @@ exports.getRoomDetails = async(req, res) => {
     try{
         // get room id
         const {roomId} = req.body;
-
-        // console.log("Request Body: ", req);
-        // console.log("Request Body Data: ", req.body.data);
 
         // Check if roomId is provided
         if (!roomId) {

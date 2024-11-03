@@ -18,7 +18,7 @@ export default function Sidebar() {
   const navigate = useNavigate();
 
   // To toggle sidebar visibility
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // To track confirmation modal
   const [confirmationModal, setConfirmationModal] = useState(null);
 
@@ -36,7 +36,7 @@ export default function Sidebar() {
   }
 
   return (
-    <div >
+    <div className="relative">
       {/* Sidebar toggle button */}
       <button
         className="text-richblack-400 sticky top-[72px] left-4 z-50 ml-4"
@@ -47,7 +47,7 @@ export default function Sidebar() {
 
       {/* Sidebar content */}
       {isSidebarOpen && (
-        <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-400 bg-richblack-800 py-10">
+        <div className="absolute md:relative z-50 md:z-0 transition-all duration-300 flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-400 bg-richblack-800 py-10">
           <div className="flex flex-col">
             {sidebarLinks.map((link) => {
               if (link.type && user?.accountType !== link.type) return null;

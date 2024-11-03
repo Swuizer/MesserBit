@@ -12,6 +12,7 @@ const {
     GET_ALL_ROOM_API,
     GET_ROOM_DETAILS_API,
     ENROLL_USER_API,
+    GET_USER_ENROLLED_ROOMS_API,
 } = ownerEndpoints;
 
 export function createOwner(token, formData) {
@@ -149,10 +150,11 @@ export function createRoom(token, data, ownerId){
 export function getAllRooms(formData){
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        // dispatch(setLoading(true));
+        dispatch(setLoading(true));
         try{
-            
-            const response = await apiConnector("POST", GET_ALL_ROOM_API, formData);
+            const response = await apiConnector("POST", GET_ALL_ROOM_API, {
+                formData,
+            });
 
             // console.log("GET_ALL_ROOMS_API RESPONSE.....", response);
 
@@ -169,7 +171,7 @@ export function getAllRooms(formData){
             console.log("All Rooms Fetched API ERROR......", error);
             toast.error("No Mess Room Found in that Location");
         }
-        // dispatch(setLoading(false));
+        dispatch(setLoading(false));
         toast.dismiss(toastId);
     }
 }
@@ -227,4 +229,27 @@ export function userEnrolled(roomId, userId){
         }
         toast.dismiss(toastId);
     }
+}
+
+export async function getUserEnrolledRooms(token) {
+    const toastId = toast.loading("Loading...");
+    let result = [];
+    try{
+        const response = await apiConnector("GET", GET_USER_ENROLLED_ROOMS_API, null,
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        if(!response.data.success){
+            throw new Error(response.data.message);
+        }
+
+        result = response.data.data;
+    } catch(error){
+        console.log("GET_USER_ENROLLED_COURSES_API API ERROR.........", error);
+        toast.error("Could Not Get Enrolled Courses");
+    }
+    toast.dismiss(toastId);
+    return result;
 }

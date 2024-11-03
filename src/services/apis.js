@@ -71,4 +71,5 @@ export const ownerEndpoints = {
     GET_ALL_ROOM_API: BASE_URL + "/room/getAllRooms",
     GET_ROOM_DETAILS_API: BASE_URL + "/room/getRoomDetails",
     ENROLL_USER_API: BASE_URL + "/room/userEnrolled",
+    GET_USER_ENROLLED_ROOMS_API: BASE_URL + "/profile/getEnrolledRooms"
 }

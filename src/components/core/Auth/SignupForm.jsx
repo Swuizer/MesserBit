@@ -76,7 +76,7 @@ function SignupForm() {
     <div>
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 text-sm">
-        <div className="flex gap-x-4">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-x-4">
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-600 ">
               First Name <sup className="text-pink-200">*</sup>
@@ -129,7 +129,7 @@ function SignupForm() {
             className="w-full rounded-[0.5rem] bg-richblack-400 p-[12px] text-richblack-5 outline-none"
           />
         </label>
-        <div className="flex gap-x-4">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-x-4">
           <label className="relative">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-600">
               Create Password <sup className="text-pink-200">*</sup>
@@ -148,7 +148,7 @@ function SignupForm() {
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+              className="absolute right-3 top-[36px] md:top-[38px] z-[10] cursor-pointer"
             >
               {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -177,7 +177,7 @@ function SignupForm() {
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+              className="absolute right-3 top-[36px] md:top-[38px] z-[10] cursor-pointer"
             >
               {showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -188,7 +188,7 @@ function SignupForm() {
           </label>
         </div>
         {/* Contact Number and Gender */}
-        <div className="flex gap-x-4">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-x-4">
           {/* Contact Number */}
           <label className="relative w-full">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-600">
@@ -233,10 +233,17 @@ function SignupForm() {
 
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900 hover:bg-yellow-100 transition-all duration-300"
         >
           Create Account
         </button>
+        <p
+          className="text-blue-400 text-[13px] font-semibold mx-auto transform translate-y-1 hover:cursor-pointer hover:text-blue-500"
+          onClick={() => navigate("/login")}
+        >
+          Existing User? Log in
+        </p>
+  
       </form>
     </div>
   )

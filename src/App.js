@@ -23,6 +23,7 @@ import AllOwner from "./components/core/Dashboard/Owner/AllOwner";
 import AddRoom from "./components/core/Dashboard/Owner/Room/AddRoom";
 import AllRooms from "./components/core/Dashboard/Owner/Room/AllRooms";
 import RoomDetails from "./components/core/Dashboard/Owner/Room/RoomDetails";
+import EnrolledRooms from "./components/core/Dashboard/EnrolledRooms";
 
 
 function App() {
@@ -34,8 +35,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/allRooms" element={<AllRooms/>} />
-        <Route path="/allRooms/getRoomDetails" element={<RoomDetails/>} />
+        <Route path="/allRooms/:location" element={<AllRooms />} />
+        <Route path="/allRooms/:location/getRoomDetails/:roomId" element={<RoomDetails/>} />
         <Route
             path="signup"
             element={
@@ -95,6 +96,14 @@ function App() {
         >
           <Route path="dashboard/my-profile" element={<MyProfile />} />
           <Route path="dashboard/Settings" element={<Settings />} />
+
+          {
+            user?.accountType === ACCOUNT_TYPE.USER && (
+              <>
+                <Route path="dashboard/EnrolledRooms" element={<EnrolledRooms />} />
+              </>
+            )
+          }
 
 
           {

@@ -29,9 +29,9 @@ export default function EditProfile() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(submitProfileForm)} className="w-9/12 mx-auto overflow-x-hidden">
+      <form onSubmit={handleSubmit(submitProfileForm)} className="w-11/12 md:w-10/12 lg:w-9/12 mx-auto overflow-x-hidden">
         {/* Profile Information */}
-        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-2 md:px-5 lg:px-12">
           <h2 className="text-lg font-semibold text-richblack-5">
             Profile Information
           </h2>

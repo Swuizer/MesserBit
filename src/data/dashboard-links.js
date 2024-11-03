@@ -30,15 +30,15 @@ export const sidebarLinks = [
   {
     id: 5,
     name: "Enrolled Rooms",
-    path: "/dashboard/enrolled-rooms",
+    path: "dashboard/EnrolledRooms",
     type: ACCOUNT_TYPE.USER,
     icon: "VscMortarBoard",
   },
-  {
-    id: 6,
-    name: "Purchase History",
-    path: "/dashboard/purchase-history",
-    type: ACCOUNT_TYPE.USER,
-    icon: "VscHistory",
-  },
+  // {
+  //   id: 6,
+  //   name: "Purchase History",
+  //   path: "/dashboard/purchase-history",
+  //   type: ACCOUNT_TYPE.USER,
+  //   icon: "VscHistory",
+  // },
 ];

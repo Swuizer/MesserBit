@@ -22,21 +22,21 @@ html, body {
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-/* * {
+* {
   scrollbar-width: auto;
   scrollbar-color: #afb2bf;
-} */
+}
 
 /* Chrome, Edge, and Safari */
-/* *::-webkit-scrollbar {
-  width: 3px;
+*::-webkit-scrollbar {
+  width: 0px;
 }
 
 *::-webkit-scrollbar-track {
-  background: #000814;
-} */
+  background: #bcbcbc;
+}
 
-/* *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: #afb2bf;
   border-radius: 10px;
   visibility: hidden;
@@ -46,7 +46,7 @@ html, body {
 *:focus::-webkit-scrollbar-thumb,
 *:hover::-webkit-scrollbar-thumb {
   visibility: visible;
-} */
+}
 
 /* Hide default styling of details/summary */
 details > summary {
@@ -229,11 +229,11 @@ details > summary::-webkit-details-marker {
 }
 
 /* Swiper CSS Starts */
-.swiper {
+/* .swiper {
   max-width: 1200px;
   width: 91.66%;
-  height: 185px;
-  margin: 50px 0px;
+  height: 500px;
+  margin: 20px 0px;
 }
 
 .swiper-slide {
@@ -241,9 +241,56 @@ details > summary::-webkit-details-marker {
   height: 100%;
 }
 .swiper-slide {
-  @apply bg-richblack-800 text-richblack-25 p-3 text-[14px];
-}
+  @apply bg-richblack-300 text-richblack-25 p-3 text-[14px];
+} */
 /* Swiper CSS Ends */
+
+
+/* Swiper CSS Starts */
+.swiper {
+  max-width: 1200px;
+  width: 91.66%;
+  height: 300px; /* Default for mobile */
+  margin: 20px 0px;
+}
+
+@media (min-width: 640px) {
+  .swiper {
+    height: 400px; /* Height for small screens (tablets) */
+  }
+}
+
+@media (min-width: 1024px) {
+  .swiper {
+    height: 500px; /* Height for larger screens (desktops) */
+  }
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+  @apply bg-richblack-300 text-richblack-25 p-3 text-[14px];
+}
+
+/* Swiper Navigation Button Customization */
+.swiper-button-next, .swiper-button-prev {
+  width: 30px !important; /* Set the width of the button */
+  height: 30px !important; /* Set the height of the button */
+  color: #ffffff !important; /* Set the color of the arrows */
+  background-color: rgba(9, 9, 9, 0.2) !important; /* Add a semi-transparent background for visibility */
+  border-radius: 50%; /* Make the buttons circular */
+  padding: 4px; /* Add padding for visual spacing */
+  text-align: center;
+}
+
+/* Translate the right arrow button further to the right */
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 16px !important; /* Adjust the arrow icon size */
+} 
+
+/* Swiper CSS Ends */
+
 
 
 /* This is just a basic example, you can customize the styles as per your design */
@@ -273,6 +320,43 @@ details > summary::-webkit-details-marker {
   background: #fff;
 }
 
+/* Image Slider */
+/* 
+#app {
+  height: 100%;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+.mySwiper {
+  width: 1200px;
+  height: 800px;
+}
+
+.mySwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.mySwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+
+/* Image Slider */
 
 
 .blackButton {
