@@ -25,7 +25,7 @@ export function createOwner(token, formData) {
                 token,
             });
         
-            console.log("CREATE_OWNER_API RESPONSE.....", response);
+            // console.log("CREATE_OWNER_API RESPONSE.....", response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -34,14 +34,14 @@ export function createOwner(token, formData) {
             // dispatch(
             //     setOwner(response.data.ownerDetails)
             // );
-            console.log("User Data: ",response.data.ownerDetails);
+            // console.log("User Data: ",response.data.ownerDetails);
         
         
             //   localStorage.setItem("owner", JSON.stringify(response.data.ownerDetails));
 
             toast.success("Owner Created Successfully");
         } catch (error){
-            console.log("Owner Creation API ERROR......", error);
+            // console.log("Owner Creation API ERROR......", error);
             toast.error("Owner Creation Failed");
         }
         dispatch(setLoading(false));
@@ -59,7 +59,7 @@ export function getAllOwners(token, formData){
                 token,
             });
 
-            console.log("GET_ALL_OWNER_DETAILS_API RESPONSE.....", response);
+            // console.log("GET_ALL_OWNER_DETAILS_API RESPONSE.....", response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -74,7 +74,7 @@ export function getAllOwners(token, formData){
 
             toast.success("All Owner Details Fetching Successfully");
         } catch (error){
-            console.log("All Owner Details Fetching API ERROR......", error);
+            // console.log("All Owner Details Fetching API ERROR......", error);
             toast.error("Failed to Fetch Owner Details");
         }
         dispatch(setLoading(false));
@@ -92,13 +92,13 @@ export function getAllOwnerByPhone(token, formData){
                 token,
             });
 
-            console.log("GET_ALL_OWNER_BY_PHONE_API RESPONSE.....", response);
+            // console.log("GET_ALL_OWNER_BY_PHONE_API RESPONSE.....", response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
             }
 
-            console.log("All Owners Data By Phone: ",response.data.data);
+            // console.log("All Owners Data By Phone: ",response.data.data);
             
             dispatch(
                 setOwners(response.data.data)
@@ -106,7 +106,7 @@ export function getAllOwnerByPhone(token, formData){
 
             toast.success("All Owner Details Fetching By Phone Number Successfully");
         } catch (error){
-            console.log("All Owner Details Fetching By Phone Number API ERROR......", error);
+            // console.log("All Owner Details Fetching By Phone Number API ERROR......", error);
             toast.error("Failed to Fetch Owner Details By Phone Number");
         }
         dispatch(setLoading(false));
@@ -117,7 +117,7 @@ export function getAllOwnerByPhone(token, formData){
 export function createRoom(token, data, ownerId){
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        console.log("Check Check");
+        // console.log("Check Check");
         dispatch(setLoading(true));
         try{
             const response = await apiConnector("POST", CREATE_ROOM_API, { 
@@ -129,13 +129,13 @@ export function createRoom(token, data, ownerId){
                 "Content-Type": "multipart/form-data",
             });
 
-            console.log("CREATE_ROOM_API RESPONSE....", response);
+            // console.log("CREATE_ROOM_API RESPONSE....", response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
             }
 
-            console.log("Room Data: ",response.data.newRoom);
+            // console.log("Room Data: ",response.data.newRoom);
         
             toast.success("Room Created Successfully");
         } catch (error){
@@ -168,7 +168,7 @@ export function getAllRooms(formData){
 
             toast.success("All Rooms Fetched Successfully");
         } catch (error){
-            console.log("All Rooms Fetched API ERROR......", error);
+            // console.log("All Rooms Fetched API ERROR......", error);
             toast.error("No Mess Room Found in that Location");
         }
         dispatch(setLoading(false));
@@ -185,13 +185,13 @@ export function getRoomDetails(roomId){
                 roomId
             });
 
-            console.log("GET_ROOM_DETAILS_API RESPONSE.....", response);
+            // console.log("GET_ROOM_DETAILS_API RESPONSE.....", response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
             }
 
-            console.log("Room Details: ",response.data.data);
+            // console.log("Room Details: ",response.data.data);
             
             dispatch(
                 setRoom(response.data.data)
@@ -199,7 +199,7 @@ export function getRoomDetails(roomId){
 
             toast.success("Room Details Access Successfully");
         } catch (error){
-            console.log("Room Details API ERROR......", error);
+            // console.log("Room Details API ERROR......", error);
             toast.error("Room Details Access Failed");
         }
         dispatch(setLoading(false));
@@ -215,7 +215,7 @@ export function userEnrolled(roomId, userId){
                 roomId, 
                 userId
             });
-            console.log("ENROLL_USER_API RESPONSE.....", response);
+            // console.log("ENROLL_USER_API RESPONSE.....", response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -224,7 +224,7 @@ export function userEnrolled(roomId, userId){
            
             toast.success("Room Booking Request Send Successfully");
         } catch(error){
-            console.log("Room Booking API ERROR......", error);
+            // console.log("Room Booking API ERROR......", error);
             toast.error("Room Booking Access Failed");
         }
         toast.dismiss(toastId);
@@ -247,7 +247,7 @@ export async function getUserEnrolledRooms(token) {
 
         result = response.data.data;
     } catch(error){
-        console.log("GET_USER_ENROLLED_COURSES_API API ERROR.........", error);
+        // console.log("GET_USER_ENROLLED_COURSES_API API ERROR.........", error);
         toast.error("Could Not Get Enrolled Courses");
     }
     toast.dismiss(toastId);

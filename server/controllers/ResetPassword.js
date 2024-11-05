@@ -22,7 +22,7 @@ exports.resetPasswordToken = async (req, res) => {
         // const token = crypto.randomUUID();
         const token = crypto.randomBytes(20).toString("hex");
         // update user by adding token and expiration time
-        const updatedDetails = await User.findOneAndUpdate(
+        await User.findOneAndUpdate(
             {email: email},
             {
                 token: token,
@@ -45,7 +45,7 @@ exports.resetPasswordToken = async (req, res) => {
  
     }
     catch(error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({   // *********** please check this line *********
             error: error.message,
             success: false,
@@ -97,7 +97,7 @@ exports.resetPassword = async (req, res) => {
         });
     }
     catch (error){
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             error: error.message,
             success: false,

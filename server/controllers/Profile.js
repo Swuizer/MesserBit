@@ -64,11 +64,11 @@ exports.requestDeleteAccount = async (req, res) => {
     try {
         // Get the user's ID from the request
         const id = req.user.id;
-        console.log("User Id: ", id);
+        // console.log("User Id: ", id);
 
         // Find the user by ID
         const user = await User.findById(id);
-        console.log("User Details: ", user);
+        // console.log("User Details: ", user);
         // If the user does not exist, return an error
         if (!user) {
             return res.status(404).json({
@@ -87,10 +87,13 @@ exports.requestDeleteAccount = async (req, res) => {
         }
 
         // Create a new delete request
-        const deleteRequest = await DeleteRequest.create({
+        // const deleteRequest = await DeleteRequest.create({
+        //     userId: user._id,
+        // });
+        await DeleteRequest.create({
             userId: user._id,
         });
-        console.log("Delete Request Send", deleteRequest);
+        // console.log("Delete Request Send", deleteRequest);
 
         // Return success response
         res.status(200).json({
@@ -112,7 +115,7 @@ exports.adminApproveDeleteRequest = async (req, res) => {
         // const {  } = req.params;
         const { action, requestId } = req.body; // Action can be 'Approved' or 'Rejected'
 
-        console.log("Action and RequestId: ", action, requestId);
+        // console.log("Action and RequestId: ", action, requestId);
         // Find the delete request by ID
         const deleteRequest = await DeleteRequest.findById(requestId);
         if (!deleteRequest || deleteRequest.status !== 'Pending') {
@@ -163,7 +166,7 @@ exports.adminApproveDeleteRequest = async (req, res) => {
             });
         }
     } catch (error) {
-        console.log("Error in adminApproveDeleteRequest: ", error);
+        // console.log("Error in adminApproveDeleteRequest: ", error);
         return res.status(500).json({
             success: false,
             message: "Something went wrong. Could not process the admin action.",

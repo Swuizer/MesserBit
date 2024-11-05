@@ -115,7 +115,7 @@ exports.createRoom = async (req, res) => {
         });
     }
     catch (error){
-        console.error(error);
+        // console.error(error);
         return res.status(500).json({
             success: false,
             message: "Failed to create Room",
@@ -285,7 +285,7 @@ exports.getAllRooms = async (req, res) => {
         })
     }
     catch (error){
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: 'Cannot fetch Rooms details',
@@ -331,7 +331,7 @@ exports.getRoomDetails = async(req, res) => {
         });
     }
     catch(error){
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: "An error occurred while fetching the room details.",
@@ -406,7 +406,7 @@ exports.userEnrolled = async (req, res) => {
         });
         
     } catch (error) {
-        console.error("Error during user enrollment:", error);
+        // console.error("Error during user enrollment:", error);
         return res.status(500).json({
             success: false,
             message: "Internal server error during enrollment.",
