@@ -67,7 +67,7 @@ exports.roomEnrollmentEmail = (roomName, name) => {
     
     <body>
         <div class="container">
-            <a href="https://messerbit-website-link.com"><img class="logo" src="https://i.ibb.co/7Xyj3PC/logo.png" alt="MesserBit Logo"></a>
+            <a href="https://messerbit.com"><img class="logo" src="https://i.ibb.co/F7DWD2Z/logo-transparent-png.png" alt="MesserBit Logo"></a>
             <div class="message">Room Booking Confirmation</div>
             <div class="body">
                 <p>Dear ${name},</p>

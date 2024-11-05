@@ -68,8 +68,8 @@ const deleteAccountRequestTemplate = (userName, userPhone, userId) => {
 	
 	<body>
 		<div class="container">
-			<a href="https://studynotion-edtech-project.vercel.app"><img class="logo"
-					src="https://i.ibb.co/7Xyj3PC/logo.png" alt="MesserBit Logo"></a>
+			<a href="https://messerbit.com"><img class="logo"
+					src="https://i.ibb.co/F7DWD2Z/logo-transparent-png.png" alt="MesserBit Logo"></a>
 			<div class="message">Delete Account Request Notification</div>
 			<div class="body">
 				<p>Dear Admin,</p>

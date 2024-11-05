@@ -101,6 +101,14 @@ exports.updateOwner = async (req, res) => {
     }
 };
 
+const capitalizeWords = (str) => {
+    return str
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
+
 // get all Owners handler function
 exports.showAllOwnersByLocation = async (req, res) => {
     try {
@@ -117,20 +125,19 @@ exports.showAllOwnersByLocation = async (req, res) => {
 
         const locationParts = location.split(',').map(part => part.trim());
 
-        if (locationParts.length !== 3) {
-            return res.status(400).json({
-                success: false,
-                message: 'Location must be in the format "city, state, country"'
-            });
-        }
+        // if (locationParts.length !== 3) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: 'Location must be in the format "city, state, country"'
+        //     });
+        // }
 
-        const [city, dist, state] = locationParts;
+        // const [city, dist, state] = locationParts;
+        const city = capitalizeWords(locationParts[0]);
 
         // Find owners in the specific location
         const allOwners = await Owner.find({
             'location.city': city,
-            'location.dist': dist,
-            'location.state': state
         })
         .populate('rooms')
         .exec(); // Populating rooms associated with these owners
