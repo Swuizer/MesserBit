@@ -24,11 +24,11 @@ const AllRooms = () => {
 
   return (
     <>
-        {!rooms ? (
+        {rooms === undefined || rooms === null ? (
             <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
                 <div className="spinner"></div>
             </div>
-        ) : (!rooms.length ? (
+        ) : (rooms.length === 0 ? (
                 <>
                     <h2 className='text-richblack-400 text-2xl mt-32 text-center font-semibold'>No Mess Room Found in that Location</h2>
                     <p className='text-richblack-400 text-sm mt-1 text-center font-semibold'>Our services available in <span>Barasat, Madhyamgram and Barrackpur</span></p>
